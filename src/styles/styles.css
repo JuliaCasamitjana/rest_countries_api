@@ -204,6 +204,7 @@ Some suggestions can be found below:
 .desktop__input input {
   border: none;
   font-family: 'Nunito Sans', sans-serif;
+  width: 60%;
 }
 
 .desktop__input input::-webkit-input-placeholder {

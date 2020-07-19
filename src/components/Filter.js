@@ -41,12 +41,13 @@ class Filter extends React.Component {
           <div className="desktop__filter">
             <Select 
                 options={options} 
-                // className={`${this.props.mode==="light" ? "" : "dark_light"} react-select-co`}
                 placeholder="Filter by Region"
                 isSearchable
                 isFocused
                 onChange={this.filterRegion}
                 styles={colourStyles}
+                aria-label="Filter by region"
+            
                 />
           </div>
         )

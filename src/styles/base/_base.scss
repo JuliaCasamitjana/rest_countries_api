@@ -1,0 +1,58 @@
+*{
+    box-sizing:border-box;
+    }
+
+
+body {
+    margin: 0;
+    font-family: 'Nunito Sans', sans-serif;
+    box-sizing: content-box;
+    font-weight: 300;
+    color: $dark-blue-dm;
+    font-size:14px;
+    background-color: $verylight-grey-lm;
+}
+
+
+.dark{
+    background-color: $very-dark-blue-dm!important;
+    color:white;
+}
+
+.dark_light{
+    background-color: $dark-blue-dm!important;
+    color:white!important;
+    input, i{
+        background-color: $dark-blue-dm!important;
+        color: white!important;
+    }
+
+    a{
+        color:white!important;
+    }
+
+}
+
+a{
+    text-decoration: none;
+    color: $dark-blue-dm;
+
+}
+
+a:visited{
+    color:none;
+}
+
+
+/* 
+
+
+## Icons
+
+For the icons, you can use a font icon library. Don't worry if the icons that you choose don't look exactly like they do on the design.
+
+Some suggestions can be found below:
+
+- [Font Awesome](https://fontawesome.com)
+- [IcoMoon](https://icomoon.io)
+- [Ionicons](https://ionicons.com) */

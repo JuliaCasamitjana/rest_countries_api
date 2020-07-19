@@ -1,0 +1,28 @@
+.header{
+    color:black;
+    background-color: $white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:0;
+    padding: 1rem;
+    height: 5rem;
+
+    h1{
+        font-size: $font-size-details;
+    }
+
+    span{
+        font-size:13px;
+    }
+ 
+}
+
+.header__mode{
+    cursor: pointer;
+}
+
+.header--dm{
+    color:$white;
+    background-color: $dark-blue-dm;
+}

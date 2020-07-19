@@ -1,0 +1,97 @@
+
+.desktop__input{
+    display: block;
+    background-color: white;
+    border:none;
+    box-shadow:  0 0 12px -6px rgba(0,0,0,0.4);
+    border-radius: 5px;
+    padding: 1.15rem;
+    width: 100%;
+    margin-bottom: 1rem;
+
+    @media(min-width: 600px){
+        display: inline-block;
+        width: 60%;
+        }
+
+    i{
+        margin-right: 2rem;
+    }
+
+    input{
+        border:none;
+        font-family: 'Nunito Sans', sans-serif;
+    }
+
+    input::placeholder {
+        color:lightgrey;
+        
+      }
+
+    input:focus{
+        outline:none
+    }
+   
+}
+
+.desktop__filter{
+    display: block;
+    border:none;
+    box-shadow:  0 0 12px -6px rgba(0,0,0,0.4);
+    width: 13rem;
+    border-radius: 5px;
+    
+
+    @media(min-width: 600px){
+        display: inline-block;
+        float: right;
+    }
+}
+
+
+.desktop__country{
+    display: block;
+    width: 290px;
+    margin: 2rem auto;
+    
+
+    @media(min-width: 650px){
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+        grid-gap:3rem;
+
+
+        }
+    @media(min-width: 1100px){
+        grid-template-columns: 1fr 1fr 1fr;
+    
+    }
+    @media(min-width: 1400px){
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    
+    }
+
+
+    .desktop__country__box{
+        box-shadow:  0 0 12px -6px rgba(0,0,0,0.4);
+        border-radius: 5px;
+        background-color: white;
+        width: 290px;
+        margin-bottom: 2rem;
+
+        img{
+            width: 100%;
+            border-radius: 5px 5px 0 0;
+            height: 190px;
+        }
+        
+        div{
+        padding: 1rem 2rem;
+    
+        span{
+            font-weight: 600;
+        }
+        }
+    }
+}

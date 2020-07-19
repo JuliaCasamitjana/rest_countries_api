@@ -1,0 +1,310 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Nunito Sans', sans-serif;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  font-weight: 300;
+  color: #2b3945;
+  font-size: 14px;
+  background-color: #fafafa;
+}
+
+.dark {
+  background-color: #202c37 !important;
+  color: white;
+}
+
+.dark_light {
+  background-color: #2b3945 !important;
+  color: white !important;
+}
+
+.dark_light input, .dark_light i {
+  background-color: #2b3945 !important;
+  color: white !important;
+}
+
+.dark_light a {
+  color: white !important;
+}
+
+a {
+  text-decoration: none;
+  color: #2b3945;
+}
+
+a:visited {
+  color: none;
+}
+
+/* 
+
+
+## Icons
+
+For the icons, you can use a font icon library. Don't worry if the icons that you choose don't look exactly like they do on the design.
+
+Some suggestions can be found below:
+
+- [Font Awesome](https://fontawesome.com)
+- [IcoMoon](https://icomoon.io)
+- [Ionicons](https://ionicons.com) */
+.header {
+  color: black;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+  padding: 1rem;
+  height: 5rem;
+}
+
+.header h1 {
+  font-size: 16px;
+}
+
+.header span {
+  font-size: 13px;
+}
+
+.header__mode {
+  cursor: pointer;
+}
+
+.header--dm {
+  color: #fff;
+  background-color: #2b3945;
+}
+
+.country__btn {
+  display: inline-block;
+  background-color: white;
+  margin-top: 1rem;
+  -webkit-box-shadow: 0 0 12px -6px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 12px -6px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.country__btn p {
+  display: inline;
+  margin: 1rem;
+}
+
+.country {
+  margin: 4rem 0;
+  height: 100vh;
+}
+
+.country img {
+  height: auto;
+  width: 100%;
+  vertical-align: top;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 500px) {
+  .country img {
+    max-width: 450px;
+    max-height: 20rem;
+    margin-right: 5rem;
+  }
+}
+
+@media (min-width: 500px) {
+  .country__container {
+    display: inline-block;
+  }
+}
+
+.country__info p {
+  margin: .7rem 0;
+}
+
+.country__info > div {
+  margin: 2rem 0;
+}
+
+@media (min-width: 800px) {
+  .country__info > div {
+    display: inline-block;
+    vertical-align: top;
+    margin: 1rem 2rem 0 0;
+  }
+}
+
+.country__info span {
+  font-weight: 600;
+}
+
+.country__info .span_light {
+  font-weight: 300;
+}
+
+.country__info .block {
+  display: block;
+  margin: 1rem 1rem 1rem 0;
+}
+
+@media (min-width: 800px) {
+  .country__info .block {
+    display: inline-block;
+  }
+}
+
+.country__info .country__borders {
+  display: block;
+}
+
+.country__info .country__borders .country__border {
+  display: inline;
+  background-color: white;
+  margin-right: .5rem;
+  -webkit-box-shadow: 0 0 12px -6px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 12px -6px rgba(0, 0, 0, 0.4);
+  padding: .5rem;
+}
+
+.desktop__input {
+  display: block;
+  background-color: white;
+  border: none;
+  -webkit-box-shadow: 0 0 12px -6px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 12px -6px rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  padding: 1.15rem;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 600px) {
+  .desktop__input {
+    display: inline-block;
+    width: 60%;
+  }
+}
+
+.desktop__input i {
+  margin-right: 2rem;
+}
+
+.desktop__input input {
+  border: none;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.desktop__input input::-webkit-input-placeholder {
+  color: lightgrey;
+}
+
+.desktop__input input:-ms-input-placeholder {
+  color: lightgrey;
+}
+
+.desktop__input input::-ms-input-placeholder {
+  color: lightgrey;
+}
+
+.desktop__input input::placeholder {
+  color: lightgrey;
+}
+
+.desktop__input input:focus {
+  outline: none;
+}
+
+.desktop__filter {
+  display: block;
+  border: none;
+  -webkit-box-shadow: 0 0 12px -6px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 12px -6px rgba(0, 0, 0, 0.4);
+  width: 13rem;
+  border-radius: 5px;
+}
+
+@media (min-width: 600px) {
+  .desktop__filter {
+    display: inline-block;
+    float: right;
+  }
+}
+
+.desktop__country {
+  display: block;
+  width: 290px;
+  margin: 2rem auto;
+}
+
+@media (min-width: 650px) {
+  .desktop__country {
+    display: -ms-grid;
+    display: grid;
+    width: 100%;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    grid-gap: 3rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .desktop__country {
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 1400px) {
+  .desktop__country {
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.desktop__country .desktop__country__box {
+  -webkit-box-shadow: 0 0 12px -6px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 12px -6px rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  background-color: white;
+  width: 290px;
+  margin-bottom: 2rem;
+}
+
+.desktop__country .desktop__country__box img {
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+  height: 190px;
+}
+
+.desktop__country .desktop__country__box div {
+  padding: 1rem 2rem;
+}
+
+.desktop__country .desktop__country__box div span {
+  font-weight: 600;
+}
+
+.container {
+  padding: 1rem;
+  -webkit-box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.4);
+          box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.4);
+}
+
+@media (min-width: 800px) {
+  .container {
+    padding: 4rem;
+    margin: 0 auto;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

@@ -18,7 +18,7 @@ class Search extends React.Component {
         return(
         <div className={`${this.props.mode==="light" ? "" : "dark_light"} desktop__input`}>
             <i className="fa fa-search" aria-hidden="true"></i>
-            <input type="text" value={this.state.search} onChange= {this.onChangeInput} placeholder=" Search for a coutry..."></input>
+            <input type="text" name="search" aria-label="Search" value={this.state.search} onChange= {this.onChangeInput} placeholder=" Search for a coutry..."></input>
         </div>
     )}
 }

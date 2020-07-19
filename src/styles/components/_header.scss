@@ -7,9 +7,12 @@
     margin:0;
     padding: 1rem;
     height: 5rem;
+    @media(min-width: 600px){
+        padding:0 4rem
+    }
 
     h1{
-        font-size: $font-size-details;
+        font-size: 1.3rem;
     }
 
     span{
@@ -22,7 +25,3 @@
     cursor: pointer;
 }
 
-.header--dm{
-    color:$white;
-    background-color: $dark-blue-dm;
-}

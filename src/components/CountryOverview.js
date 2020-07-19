@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 const CountryOverview = (props) => (
     <div className={`${props.mode==="light" ? "" : "dark_light"} desktop__country__box`}>
         <Link to={{
-            pathname:`/${props.info.name}`, 
+            pathname:`/${props.info.name.replace(' ', '%20')}`, 
             props: props.info
         }}>
         <img alt={`Flag from ${props.info.name}`} src={props.info.flag} />

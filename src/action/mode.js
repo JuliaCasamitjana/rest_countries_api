@@ -1,3 +1,1 @@
-export const changeMode = () =>(
-    {type: 'SWITCH'}
-)
+export const changeMode = () => ({ type: "SWITCH" });

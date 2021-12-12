@@ -1,85 +1,116 @@
-import React from 'react';
-import axios from 'axios';
-import Search from './Search';
-import Filter from './Filter';
-import CountryOverview from './CountryOverview';
-import { connect } from 'react-redux';
+import React from "react";
+import axios from "axios";
+import Search from "./Search";
+import Filter from "./Filter";
+import CountryOverview from "./CountryOverview";
+import { connect } from "react-redux";
 
 class Desktop extends React.Component {
+  state = {
+    countries: [],
+  };
 
-  state={
-    countries:[],
-  }
-
-  componentDidMount=()=>{
-    axios.get('https://restcountries.eu/rest/v2/all?fields=name;flag;population;region;capital').then((res) =>{
-      this.setState({countries: res.data})
-    }).catch((e) =>{
-      this.setState({error: "The server might be busy. Try again in a couple of minutes"})
-
-    })
-  }
-
-  handleSearch = (search) =>{
-    if (search){
-      axios.get(`https://restcountries.eu/rest/v2/name/${search}?fields=name;flag;population;region;capital`).then((res) =>{
-        this.setState({countries: res.data, error:""})
-      }).catch((e) =>{
-        this.setState({error: "We couldn't find this country. Try again with other words"})
+  componentDidMount = () => {
+    axios
+      .get(
+        "https://restcountries.eu/rest/v2/all?fields=name;flag;population;region;capital"
+      )
+      .then((res) => {
+        this.setState({ countries: res.data });
       })
-    }else{
-      axios.get('https://restcountries.eu/rest/v2/all?fields=name;flag;population;region;capital').then((res) =>{
-        this.setState({countries: res.data})
-      }).catch((e) =>{
-        this.setState({error: "The server might be busy. Try again in a couple of minutes"})
-  
-      })
+      .catch((e) => {
+        this.setState({
+          error: "The server might be busy. Try again in a couple of minutes",
+        });
+      });
+  };
 
+  handleSearch = (search) => {
+    if (search) {
+      axios
+        .get(
+          `https://restcountries.eu/rest/v2/name/${search}?fields=name;flag;population;region;capital`
+        )
+        .then((res) => {
+          this.setState({ countries: res.data, error: "" });
+        })
+        .catch((e) => {
+          this.setState({
+            error: "We couldn't find this country. Try again with other words",
+          });
+        });
+    } else {
+      axios
+        .get(
+          "https://restcountries.eu/rest/v2/all?fields=name;flag;population;region;capital"
+        )
+        .then((res) => {
+          this.setState({ countries: res.data });
+        })
+        .catch((e) => {
+          this.setState({
+            error: "The server might be busy. Try again in a couple of minutes",
+          });
+        });
     }
-  }
+  };
 
-  handleFilter = (region) =>{
-    if (region){
-      axios.get(`https://restcountries.eu/rest/v2/region/${region}?fields=name;flag;population;region;capital`).then((res) =>{
-        this.setState({countries: res.data, error:""})
-      }).catch((e) =>{
-        this.setState({error: "The server might be busy. Try again in a couple of minutes"})
-      })
-    }else{
-      axios.get(`https://restcountries.eu/rest/v2/region/${region}?fields=name;flag;population;region;capital`).then((res) =>{
-        this.setState({countries: res.data, error:""})
-      }).catch((e) =>{
-        this.setState({error: "The server might be busy. Try again in a couple of minutes"})
-      })
-
+  handleFilter = (region) => {
+    if (region) {
+      axios
+        .get(
+          `https://restcountries.eu/rest/v2/region/${region}?fields=name;flag;population;region;capital`
+        )
+        .then((res) => {
+          this.setState({ countries: res.data, error: "" });
+        })
+        .catch((e) => {
+          this.setState({
+            error: "The server might be busy. Try again in a couple of minutes",
+          });
+        });
+    } else {
+      axios
+        .get(
+          `https://restcountries.eu/rest/v2/region/${region}?fields=name;flag;population;region;capital`
+        )
+        .then((res) => {
+          this.setState({ countries: res.data, error: "" });
+        })
+        .catch((e) => {
+          this.setState({
+            error: "The server might be busy. Try again in a couple of minutes",
+          });
+        });
     }
-  }
+  };
 
-  render(){
+  render() {
     return (
-      <div className={`${this.props.mode==="light" ? "" : "dark"} desktop container`}>
+      <div
+        className={`${
+          this.props.mode === "light" ? "" : "dark"
+        } desktop container`}
+      >
+        <Search handleSearch={this.handleSearch} />
+        <Filter handleFilter={this.handleFilter} />
 
-        <Search handleSearch={this.handleSearch}/>
-        <Filter handleFilter={this.handleFilter}/>
-     
-        
-        {this.state.error&&<p>{this.state.error}</p>}
+        {this.state.error && <p>{this.state.error}</p>}
 
         <div className="desktop__country">
-          {this.state.countries.slice(0,10).map((info, i)=>
-            <CountryOverview info={info} key={i}/> 
-          )}
+          {this.state.countries.slice(0, 10).map((info, i) => (
+            <CountryOverview info={info} key={i} />
+          ))}
         </div>
       </div>
     );
   }
 }
 
-
-const mapStateToProps = (state) => {  
-  return {      
-     mode: state  
+const mapStateToProps = (state) => {
+  return {
+    mode: state,
   };
-} 
+};
 
 export default connect(mapStateToProps)(Desktop);

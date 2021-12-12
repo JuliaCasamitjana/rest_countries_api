@@ -4,14 +4,14 @@ import { connect } from "react-redux";
 
 class Country extends React.Component {
   state = {
-    country: {},
+    country: null,
     borders: [],
   };
 
   componentDidMount = () => {
     axios
       .get(
-        `https://restcountries.eu/rest/v2/name/${this.props.match.params.id}`
+        `https://restcountries.com/v3.1/name/${this.props.match.params.id}`
       )
       .then((res) => {
         this.setState({ country: res.data[0] });
@@ -23,6 +23,13 @@ class Country extends React.Component {
   };
 
   render() {
+    if (!this.state.country) {
+        return (
+            <div className={`${this.props.mode === "light" ? "" : "dark"} container`}>
+                <p>Loading...</p>
+            </div>
+        )
+    }
     return (
       <div className={`${this.props.mode === "light" ? "" : "dark"} container`}>
         <div
@@ -34,19 +41,19 @@ class Country extends React.Component {
           <i className="fa fa-arrow-left" aria-hidden="true"></i>
           <p>Back</p>
         </div>
-
+        
         <div className="country">
           <img
-            alt={`Flag from ${this.state.country.name}`}
-            src={this.state.country.flag}
+            alt={`Flag from ${this.state.country.name.common}`}
+            src={this.state.country.flags.png}
           />
           <div className="country__container">
-            <h2>{this.state.country.name}</h2>
+            <h2>{this.state.country.name.common}</h2>
             <div className="country__info">
               <div>
                 <p>
                   <span>Native Name: </span>
-                  {this.state.country.nativeName}
+                  {this.state.country.name.official}
                 </p>
                 <p>
                   <span>Population: </span>
@@ -68,32 +75,29 @@ class Country extends React.Component {
               <div>
                 <p>
                   <span>Top Level Domain:</span>{" "}
-                  {this.state.country.topLevelDomain}
+                  {this.state.country.tld}
                 </p>
                 {this.state.country.currencies && (
                   <p>
                     <span>Currencies: </span>
-                    {this.state.country.currencies.map((c, i) => {
-                      return (
+                    {Object.keys(this.state.country.currencies).map((c, i) => {
+                        return(
                         <span className="span_light" key={i}>
-                          {" "}
-                          {i === this.state.country.currencies.length - 1
-                            ? c.name
-                            : c.name + ","}{" "}
+                          {i === Object.keys(this.state.country.currencies).length - 1
+                            ? this.state.country.currencies[`${c}`].name
+                            : this.state.country.currencies[`${c}`].name + ","}
                         </span>
-                      );
-                    })}
+                      )})}
                   </p>
                 )}
                 {this.state.country.languages && (
                   <p>
                     <span>Languages: </span>
-                    {this.state.country.languages.map((l, i) => (
+                    {Object.keys(this.state.country.languages).map((l, i) => (
                       <span className="span_light" key={i}>
-                        {" "}
-                        {i === this.state.country.languages.length - 1
-                          ? l.name
-                          : l.name + ","}{" "}
+                        {i === Object.keys(this.state.country.languages).length - 1
+                          ? this.state.country.languages[`${l}`]
+                          : this.state.country.languages[`${l}`] + ","}
                       </span>
                     ))}
                   </p>

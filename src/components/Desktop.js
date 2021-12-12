@@ -13,7 +13,7 @@ class Desktop extends React.Component {
   componentDidMount = () => {
     axios
       .get(
-        "https://restcountries.eu/rest/v2/all?fields=name;flag;population;region;capital"
+        'https://restcountries.com/v3.1/all?fields=name,flags,population,region,capital'
       )
       .then((res) => {
         this.setState({ countries: res.data });
@@ -29,7 +29,7 @@ class Desktop extends React.Component {
     if (search) {
       axios
         .get(
-          `https://restcountries.eu/rest/v2/name/${search}?fields=name;flag;population;region;capital`
+          `https://restcountries.com/v3.1/name/${search}?fields=name,flags,population,region,capital`
         )
         .then((res) => {
           this.setState({ countries: res.data, error: "" });
@@ -42,7 +42,7 @@ class Desktop extends React.Component {
     } else {
       axios
         .get(
-          "https://restcountries.eu/rest/v2/all?fields=name;flag;population;region;capital"
+          "https://restcountries.com/v3.1/all?fields=name,flags,population,region,capital"
         )
         .then((res) => {
           this.setState({ countries: res.data });
@@ -59,7 +59,7 @@ class Desktop extends React.Component {
     if (region) {
       axios
         .get(
-          `https://restcountries.eu/rest/v2/region/${region}?fields=name;flag;population;region;capital`
+          `https://restcountries.com/v3.1/region/${region}?fields=name,flags,population,region,capital`
         )
         .then((res) => {
           this.setState({ countries: res.data, error: "" });
@@ -72,7 +72,7 @@ class Desktop extends React.Component {
     } else {
       axios
         .get(
-          `https://restcountries.eu/rest/v2/region/${region}?fields=name;flag;population;region;capital`
+          `https://restcountries.com/v3.1/region/${region}?fields=name,flags,population,region,capital`
         )
         .then((res) => {
           this.setState({ countries: res.data, error: "" });

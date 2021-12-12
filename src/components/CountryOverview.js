@@ -10,13 +10,13 @@ const CountryOverview = (props) => (
   >
     <Link
       to={{
-        pathname: `/${props.info.name.replace(/\s/g, "%20")}`,
+        pathname: `/${props.info.name.common.replace(/\s/g, "%20")}`,
         props: props.info,
       }}
     >
-      <img alt={`Flag from ${props.info.name}`} src={props.info.flag} />
+      <img alt={`Flag from ${props.info.name.common}`} src={props.info.flags.png} />
       <div>
-        <h2>{props.info.name}</h2>
+        <h2>{props.info.name.common}</h2>
         <p>
           <span>Population: </span>
           {props.info.population}
